@@ -84,10 +84,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *imageName = imageNames[indexPath.row];
-    ImageViewController *imageViewController = [[ImageViewController alloc] init];
+    UIImage *image = self.images[imageName];
+    ImageViewController *imageViewController = [[ImageViewController alloc] initWithImage:image];
     UIView *imageVCView = imageViewController.view;
     
-    UIImage *image = self.images[imageName];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.contentSize = image.size;
@@ -115,6 +115,7 @@
     invertButton.action = @selector(flipBackground);
     imageViewController.navigationItem.rightBarButtonItem = invertButton;
     
+    [imageViewController.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:imageViewController action:@selector(shareImage:)]];
     imageViewController.navigationItem.title = imageName;
     [self.navigationController pushViewController:imageViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

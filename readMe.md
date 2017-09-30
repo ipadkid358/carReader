@@ -9,6 +9,7 @@ View contents of a given `.car` file
 TODOs: 
  - Nicer UI (by Jason Day)
  - Better way to pick car files (maybe)
+ - Fix scroll view hack to place image in center
 
 Known bugs:
  - If Assets.car is not in a valid NSBundle location, getting images can fail

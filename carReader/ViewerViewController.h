@@ -12,5 +12,4 @@
 @property (strong, nonatomic) NSMutableDictionary<NSString *, UIImage *> *images;
 
 + (instancetype)viewerWithImages:(NSMutableDictionary<NSString *, UIImage *> *)images;
-
 @end

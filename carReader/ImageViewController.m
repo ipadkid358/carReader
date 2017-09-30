@@ -10,6 +10,12 @@
 
 @implementation ImageViewController
 
+- (instancetype)initWithImage:(UIImage *)image {
+    ImageViewController *newViewController = [self init];
+    newViewController.imageData = UIImagePNGRepresentation(image);
+    return newViewController;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if ([self.view.backgroundColor isEqual:UIColor.whiteColor]) self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
@@ -24,6 +30,13 @@
     } else {
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         self.view.backgroundColor = black;
+    }
+}
+
+- (void)shareImage:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[self.imageData] applicationActivities:NULL];
+        [self presentViewController:activityView animated:YES completion:nil];
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		971129C11F802348002AA33F /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 971129C01F802348002AA33F /* MainNavController.m */; };
 		974D9FF21F766E5B003CF5AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FF11F766E5B003CF5AE /* AppDelegate.m */; };
 		974D9FF51F766E5B003CF5AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FF41F766E5B003CF5AE /* ViewController.m */; };
 		974D9FF81F766E5B003CF5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974D9FF61F766E5B003CF5AE /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		971129BF1F80233C002AA33F /* MainNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		971129C01F802348002AA33F /* MainNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
 		974D9FED1F766E5B003CF5AE /* carReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		974D9FF01F766E5B003CF5AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		974D9FF11F766E5B003CF5AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 				974D9FF01F766E5B003CF5AE /* AppDelegate.h */,
 				974D9FF11F766E5B003CF5AE /* AppDelegate.m */,
 				974DA0061F7677BE003CF5AE /* _UIAssetManager.h */,
+				971129BF1F80233C002AA33F /* MainNavController.h */,
+				971129C01F802348002AA33F /* MainNavController.m */,
 				974D9FF61F766E5B003CF5AE /* Main.storyboard */,
 				974D9FF31F766E5B003CF5AE /* ViewController.h */,
 				974D9FF41F766E5B003CF5AE /* ViewController.m */,
@@ -165,6 +170,7 @@
 				978170941F77499B002DE385 /* UIView+cat.m in Sources */,
 				974DA00B1F768C3D003CF5AE /* ViewerViewController.m in Sources */,
 				974D9FF21F766E5B003CF5AE /* AppDelegate.m in Sources */,
+				971129C11F802348002AA33F /* MainNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

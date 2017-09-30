@@ -7,12 +7,43 @@
 //
 
 #import "ImageViewController.h"
+#import "UIView+cat.h"
 
 @implementation ImageViewController
 
 - (instancetype)initWithImage:(UIImage *)image {
     ImageViewController *newViewController = [self init];
     newViewController.imageData = UIImagePNGRepresentation(image);
+    UIView *imageVCView = newViewController.view;
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.contentSize = image.size;
+    scrollView.scrollsToTop = NO;
+    [scrollView addSubview:imageView];
+    [imageVCView addSubview:scrollView];
+    
+    CGFloat imageWidth = image.size.width;
+    CGFloat imageHeight = image.size.height;
+    CGFloat scrollWidth = MIN(imageWidth, imageVCView.frame.size.width);
+    CGFloat scrollHeight = MIN(imageHeight, imageVCView.frame.size.height);
+    newViewController.automaticallyAdjustsScrollViewInsets = scrollHeight != imageHeight;
+    
+    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [scrollView addLayoutConstraint:NSLayoutAttributeWidth offset:scrollWidth];
+    [scrollView addLayoutConstraint:NSLayoutAttributeHeight offset:scrollHeight];
+    [imageVCView addLayoutConstraint:NSLayoutAttributeCenterX toItem:scrollView offset:0];
+    [imageVCView addLayoutConstraint:NSLayoutAttributeCenterY toItem:scrollView offset:0];
+    
+    UIBarButtonItem *invertButton = [[UIBarButtonItem alloc] init];
+    invertButton.title = @"Invert background";
+    invertButton.target = newViewController;
+    invertButton.action = @selector(flipBackground);
+    newViewController.navigationItem.rightBarButtonItem = invertButton;
+    
+    [newViewController.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:newViewController action:@selector(shareImage:)]];
+
+    newViewController.view.backgroundColor = UIColor.whiteColor;
     return newViewController;
 }
 

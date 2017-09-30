@@ -21,7 +21,8 @@
     _UIAssetManager *assets = [[_UIAssetManager alloc] initWithName:assetsName inBundle:assetsBundle idiom:deviceIdiom];
     if (!assets) return;
     
-    // Usually, I wouldn't use valueForKey(Path): but after catalog, it goes into CoreUI, which is a PrivateFramework
+    // Usually, I wouldn't use valueForKey(Path): but after catalog, the value
+    // goes into CoreUI, which is a PrivateFramework, and a pain to link against
     NSArray *allRenditionNames = [assets valueForKeyPath:@"catalog.themeStore.store.allRenditionNames"];
     NSMutableDictionary<NSString *, UIImage *> *images = NSMutableDictionary.new;
     for (NSString *renditionName in allRenditionNames) [images setValue:[assets imageNamed:renditionName] forKey:renditionName];

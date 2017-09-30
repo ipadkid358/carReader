@@ -86,36 +86,6 @@
     NSString *imageName = imageNames[indexPath.row];
     UIImage *image = self.images[imageName];
     ImageViewController *imageViewController = [[ImageViewController alloc] initWithImage:image];
-    UIView *imageVCView = imageViewController.view;
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.contentSize = image.size;
-    scrollView.scrollsToTop = NO;
-    scrollView.contentOffset = CGPointMake(0, imageVCView.frame.size.height-568);
-    [scrollView addSubview:imageView];
-    
-    imageVCView.backgroundColor = UIColor.whiteColor;
-    [imageVCView addSubview:scrollView];
-    [scrollView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [imageVCView addLayoutConstraint:NSLayoutAttributeCenterX toItem:scrollView offset:0];
-    [imageVCView addLayoutConstraint:NSLayoutAttributeCenterY toItem:scrollView offset:0];
-    
-    CGFloat imageWidth = image.size.width;
-    CGFloat imageHeight = image.size.height;
-    CGFloat scrollWidth = MIN(imageWidth, imageVCView.frame.size.width);
-    CGFloat scrollHeight = MIN(imageHeight, imageVCView.frame.size.height);
-    if (scrollWidth == imageWidth && scrollHeight == imageHeight) scrollView.userInteractionEnabled = NO;
-    [scrollView addLayoutConstraint:NSLayoutAttributeWidth offset:scrollWidth];
-    [scrollView addLayoutConstraint:NSLayoutAttributeHeight offset:scrollHeight];
-    
-    UIBarButtonItem *invertButton = [[UIBarButtonItem alloc] init];
-    invertButton.title = @"Invert background";
-    invertButton.target = imageViewController;
-    invertButton.action = @selector(flipBackground);
-    imageViewController.navigationItem.rightBarButtonItem = invertButton;
-    
-    [imageViewController.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:imageViewController action:@selector(shareImage:)]];
     imageViewController.navigationItem.title = imageName;
     [self.navigationController pushViewController:imageViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

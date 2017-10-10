@@ -9,11 +9,13 @@
 #import "ImageViewController.h"
 #import "UIView+cat.h"
 
-@implementation ImageViewController
+@implementation ImageViewController {
+    UIActivityViewController *activityView;
+}
 
 - (instancetype)initWithImage:(UIImage *)image {
     ImageViewController *newViewController = [self init];
-    newViewController.imageData = UIImagePNGRepresentation(image);
+    activityView = [[UIActivityViewController alloc] initWithActivityItems:@[UIImagePNGRepresentation(image)] applicationActivities:NULL];
     UIView *imageVCView = newViewController.view;
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -27,7 +29,7 @@
     CGFloat imageHeight = image.size.height;
     CGFloat scrollWidth = MIN(imageWidth, imageVCView.frame.size.width);
     CGFloat scrollHeight = MIN(imageHeight, imageVCView.frame.size.height);
-    newViewController.automaticallyAdjustsScrollViewInsets = scrollHeight != imageHeight;
+    newViewController.automaticallyAdjustsScrollViewInsets = (scrollHeight != imageHeight);
     
     scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [scrollView addLayoutConstraint:NSLayoutAttributeWidth offset:scrollWidth];
@@ -41,8 +43,8 @@
     invertButton.action = @selector(flipBackground);
     newViewController.navigationItem.rightBarButtonItem = invertButton;
     
-    [newViewController.view addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:newViewController action:@selector(shareImage:)]];
-
+    [imageVCView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:newViewController action:@selector(shareImage:)]];
+    
     newViewController.view.backgroundColor = UIColor.whiteColor;
     return newViewController;
 }
@@ -65,10 +67,7 @@
 }
 
 - (void)shareImage:(UIGestureRecognizer *)gestureRecognizer {
-    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        UIActivityViewController *activityView = [[UIActivityViewController alloc] initWithActivityItems:@[self.imageData] applicationActivities:NULL];
-        [self presentViewController:activityView animated:YES completion:nil];
-    }
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) [self presentViewController:activityView animated:YES completion:nil];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

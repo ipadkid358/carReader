@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageViewController : UIViewController
-@property (strong, nonatomic) NSData *imageData;
-
 - (instancetype)initWithImage:(UIImage *)image;
 - (void)flipBackground;
 - (void)shareImage:(UIGestureRecognizer *)gestureRecognizer;

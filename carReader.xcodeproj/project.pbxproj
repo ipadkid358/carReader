@@ -16,6 +16,7 @@
 		974DA0001F766E5B003CF5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FFF1F766E5B003CF5AE /* main.m */; };
 		974DA00B1F768C3D003CF5AE /* ViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974DA00A1F768C3D003CF5AE /* ViewerViewController.m */; };
 		9768A6C01F76A86200B5DE79 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9768A6BF1F76A86200B5DE79 /* ImageViewController.m */; };
+		977D52E21F8C226600B2E3A8 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977D52E11F8C226600B2E3A8 /* ImageViewCell.m */; };
 		978170941F77499B002DE385 /* UIView+cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 978170931F77499B002DE385 /* UIView+cat.m */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		974DA00A1F768C3D003CF5AE /* ViewerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewerViewController.m; sourceTree = "<group>"; };
 		9768A6BE1F76A85300B5DE79 /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		9768A6BF1F76A86200B5DE79 /* ImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		977D52E11F8C226600B2E3A8 /* ImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
+		977D52E31F8C227000B2E3A8 /* ImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
 		978170921F77496E002DE385 /* UIView+cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+cat.h"; sourceTree = "<group>"; };
 		978170931F77499B002DE385 /* UIView+cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+cat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,15 +79,17 @@
 				974DA0061F7677BE003CF5AE /* _UIAssetManager.h */,
 				971129BF1F80233C002AA33F /* MainNavController.h */,
 				971129C01F802348002AA33F /* MainNavController.m */,
-				974D9FF61F766E5B003CF5AE /* Main.storyboard */,
 				974D9FF31F766E5B003CF5AE /* ViewController.h */,
 				974D9FF41F766E5B003CF5AE /* ViewController.m */,
+				977D52E31F8C227000B2E3A8 /* ImageViewCell.h */,
+				977D52E11F8C226600B2E3A8 /* ImageViewCell.m */,
+				9768A6BE1F76A85300B5DE79 /* ImageViewController.h */,
+				9768A6BF1F76A86200B5DE79 /* ImageViewController.m */,
+				974D9FF61F766E5B003CF5AE /* Main.storyboard */,
 				978170921F77496E002DE385 /* UIView+cat.h */,
 				978170931F77499B002DE385 /* UIView+cat.m */,
 				974DA0091F768C0E003CF5AE /* ViewerViewController.h */,
 				974DA00A1F768C3D003CF5AE /* ViewerViewController.m */,
-				9768A6BE1F76A85300B5DE79 /* ImageViewController.h */,
-				9768A6BF1F76A86200B5DE79 /* ImageViewController.m */,
 				974D9FF91F766E5B003CF5AE /* Assets.xcassets */,
 				974D9FFB1F766E5B003CF5AE /* LaunchScreen.storyboard */,
 				974D9FFE1F766E5B003CF5AE /* Info.plist */,
@@ -164,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977D52E21F8C226600B2E3A8 /* ImageViewCell.m in Sources */,
 				9768A6C01F76A86200B5DE79 /* ImageViewController.m in Sources */,
 				974D9FF51F766E5B003CF5AE /* ViewController.m in Sources */,
 				974DA0001F766E5B003CF5AE /* main.m in Sources */,

@@ -21,13 +21,16 @@
     _UIAssetManager *assets = [[_UIAssetManager alloc] initWithName:assetsName inBundle:assetsBundle idiom:deviceIdiom];
     if (!assets) return;
     
-    // Usually, I wouldn't use valueForKey(Path): but after catalog, the value
-    // goes into CoreUI, which is a PrivateFramework, and a pain to link against
-    NSArray *allRenditionNames = [assets valueForKeyPath:@"catalog.themeStore.store.allRenditionNames"];
+    // Usually, I wouldn't use valueForKey(Path), but after `catalog` the value
+    // goes into CoreUI, which is a PrivateFramework (annoying to link against)
+    NSArray<NSString *> *allImageNames = [assets valueForKeyPath:@"catalog.themeStore.allImageNames"];
     NSMutableDictionary<NSString *, UIImage *> *images = NSMutableDictionary.new;
-    for (NSString *renditionName in allRenditionNames) [images setValue:[assets imageNamed:renditionName] forKey:renditionName];
+    for (NSString *imageName in allImageNames) [images setValue:[assets imageNamed:imageName] forKey:imageName];
     
-    [self.navigationController pushViewController:[ViewerViewController viewerWithImages:images] animated:YES];
+    ViewerViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
+    newViewController.images = images;
+    newViewController.navigationItem.title = @"Images";
+    [self.navigationController pushViewController:newViewController animated:YES];
 }
 
 - (IBAction)pasteButton {

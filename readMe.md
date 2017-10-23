@@ -7,7 +7,7 @@ View contents of a given `.car` file
  - [iOS-Artwork-Extractor](https://github.com/0xced/iOS-Artwork-Extractor/blob/master/Classes/ArtworkViewController.m) explained how to use `valueForKeyPath:`
 
 ### TODOs:
- - Nicer UI (will be done with Jason Day)
+ - Nicer general UI
  - Better way to pick car files (maybe)
 
 #### Known bugs:

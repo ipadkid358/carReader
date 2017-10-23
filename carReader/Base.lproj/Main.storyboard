@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,11 +62,21 @@
                                     <action selector="pasteButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Bs-So-5T9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPF-Om-ymt">
+                                <rect key="frame" x="24" y="167" width="88" height="30"/>
+                                <state key="normal" title="Pick App"/>
+                                <connections>
+                                    <action selector="pickAppHit" destination="BYZ-38-t0r" eventType="touchUpInside" id="lB9-Dk-Rqr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sVz-jC-E94" secondAttribute="trailing" constant="12" id="8vb-O2-icG"/>
+                            <constraint firstItem="BPF-Om-ymt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="NkM-DU-Uh2"/>
                             <constraint firstItem="REf-oJ-ejO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="Wwd-8A-mtg"/>
+                            <constraint firstItem="BPF-Om-ymt" firstAttribute="top" secondItem="REf-oJ-ejO" secondAttribute="bottom" constant="31" id="eyU-fY-nj9"/>
+                            <constraint firstItem="NO4-G7-72L" firstAttribute="leading" secondItem="BPF-Om-ymt" secondAttribute="trailing" constant="60" id="fcS-tq-o9u"/>
                             <constraint firstItem="REf-oJ-ejO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="hMJ-Dg-D1y"/>
                             <constraint firstItem="NO4-G7-72L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nl1-tf-xDi"/>
                             <constraint firstItem="NO4-G7-72L" firstAttribute="top" secondItem="REf-oJ-ejO" secondAttribute="bottom" constant="31" id="wRK-M4-ftw"/>

@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "_UIAssetManager.h"
 #import "ViewerViewController.h"
+#import "AppPickerController.h"
+#import "Private.h"
 
 @implementation ViewController
 
@@ -25,7 +26,7 @@
     // goes into CoreUI, which is a PrivateFramework (annoying to link against)
     NSArray<NSString *> *allImageNames = [assets valueForKeyPath:@"catalog.themeStore.allImageNames"];
     NSMutableDictionary<NSString *, UIImage *> *images = NSMutableDictionary.new;
-    for (NSString *imageName in allImageNames) [images setValue:[assets imageNamed:imageName] forKey:imageName];
+    for (NSString *imageName in allImageNames) [images setValue:[assets imageNamed:imageName] forKey:imageName]; //  idiom:deviceIdiom
     
     ViewerViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
     newViewController.images = images;
@@ -34,7 +35,23 @@
 }
 
 - (IBAction)pasteButton {
-    self.textBox.text = UIPasteboard.generalPasteboard.string;
+    NSString *pasteboard = UIPasteboard.generalPasteboard.string;
+    if (pasteboard.absolutePath) self.textBox.text = pasteboard;
+}
+
+- (IBAction)pickAppHit {
+    UIAlertController *loadAlert = [UIAlertController alertControllerWithTitle:@"Loading" message:@"Finding all valid apps, please wait" preferredStyle:1];
+    [self presentViewController:loadAlert animated:YES completion:^{
+        NSMutableArray<LSApplicationProxy *> *testApps = NSMutableArray.new;
+        for (LSApplicationProxy *app in LSApplicationWorkspace.defaultWorkspace.allInstalledApplications) if ([_UIAssetManager assetManagerForBundle:[NSBundle bundleWithURL:app.bundleURL]]) [testApps addObject:app];
+        
+        AppPickerController *appPicker = AppPickerController.new;
+        appPicker.validApps = testApps;
+        
+        [loadAlert dismissViewControllerAnimated:YES completion:^{
+            [self.navigationController pushViewController:appPicker animated:YES];
+        }];
+    }];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

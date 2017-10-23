@@ -19,7 +19,7 @@
     UIView *imageVCView = newViewController.view;
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    UIScrollView *scrollView = UIScrollView.new;
     scrollView.contentSize = image.size;
     scrollView.scrollsToTop = NO;
     [scrollView addSubview:imageView];
@@ -51,19 +51,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if ([self.view.backgroundColor isEqual:UIColor.whiteColor]) self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    else self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barStyle = [self.view.backgroundColor isEqual:UIColor.blackColor];
 }
 
 - (void)flipBackground {
-    UIColor *black = UIColor.blackColor;
-    if ([self.view.backgroundColor isEqual:black]) {
-        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-        self.view.backgroundColor = UIColor.whiteColor;
-    } else {
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        self.view.backgroundColor = black;
-    }
+    UIColor *white = UIColor.whiteColor;
+    BOOL isWhite = [self.view.backgroundColor isEqual:white];
+    self.navigationController.navigationBar.barStyle = isWhite;
+    self.view.backgroundColor = isWhite ? UIColor.blackColor : white;
 }
 
 - (void)shareImage:(UIGestureRecognizer *)gestureRecognizer {

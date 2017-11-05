@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a6j-8N-FfZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a6j-8N-FfZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Nav Controller-->
+        <!--Nav Controller-->
         <scene sceneID="3NV-gX-dXZ">
             <objects>
-                <navigationController id="a6j-8N-FfZ" customClass="MainNavController" sceneMemberID="viewController">
+                <navigationController id="a6j-8N-FfZ" customClass="CRNavController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mQB-om-KT8">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -30,21 +30,11 @@
         <!--Select .car File-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CRViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NO4-G7-72L" userLabel="Go">
-                                <rect key="frame" x="172" y="167" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="LsR-Dx-uem"/>
-                                </constraints>
-                                <state key="normal" title="Go"/>
-                                <connections>
-                                    <action selector="goButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="XbU-iA-4PX"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="/Applications/My.app/Assets.car" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="REf-oJ-ejO">
                                 <rect key="frame" x="24" y="106" width="281" height="30"/>
                                 <nil key="textColor"/>
@@ -63,22 +53,44 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPF-Om-ymt">
-                                <rect key="frame" x="24" y="167" width="88" height="30"/>
+                                <rect key="frame" x="24" y="167" width="61" height="30"/>
                                 <state key="normal" title="Pick App"/>
                                 <connections>
                                     <action selector="pickAppHit" destination="BYZ-38-t0r" eventType="touchUpInside" id="lB9-Dk-Rqr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRJ-iX-ODN">
+                                <rect key="frame" x="125" y="167" width="109" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ol4-am-l5j"/>
+                                </constraints>
+                                <state key="normal" title="Pick Framework"/>
+                                <connections>
+                                    <action selector="pickFrameworkHit" destination="BYZ-38-t0r" eventType="touchUpInside" id="7mA-ZN-nmn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NO4-G7-72L" userLabel="Go">
+                                <rect key="frame" x="274" y="167" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LsR-Dx-uem"/>
+                                </constraints>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="goButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="XbU-iA-4PX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sRJ-iX-ODN" firstAttribute="leading" secondItem="BPF-Om-ymt" secondAttribute="trailing" constant="40" id="3zW-1g-3LL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sVz-jC-E94" secondAttribute="trailing" constant="12" id="8vb-O2-icG"/>
+                            <constraint firstItem="sRJ-iX-ODN" firstAttribute="top" secondItem="BPF-Om-ymt" secondAttribute="top" id="BhO-98-5Ro"/>
                             <constraint firstItem="BPF-Om-ymt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="NkM-DU-Uh2"/>
+                            <constraint firstItem="NO4-G7-72L" firstAttribute="leading" secondItem="sRJ-iX-ODN" secondAttribute="trailing" constant="40" id="OiG-7d-8J3"/>
+                            <constraint firstItem="NO4-G7-72L" firstAttribute="top" secondItem="sRJ-iX-ODN" secondAttribute="top" id="RgN-SC-uI3"/>
                             <constraint firstItem="REf-oJ-ejO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="Wwd-8A-mtg"/>
                             <constraint firstItem="BPF-Om-ymt" firstAttribute="top" secondItem="REf-oJ-ejO" secondAttribute="bottom" constant="31" id="eyU-fY-nj9"/>
-                            <constraint firstItem="NO4-G7-72L" firstAttribute="leading" secondItem="BPF-Om-ymt" secondAttribute="trailing" constant="60" id="fcS-tq-o9u"/>
                             <constraint firstItem="REf-oJ-ejO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="hMJ-Dg-D1y"/>
-                            <constraint firstItem="NO4-G7-72L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nl1-tf-xDi"/>
                             <constraint firstItem="NO4-G7-72L" firstAttribute="top" secondItem="REf-oJ-ejO" secondAttribute="bottom" constant="31" id="wRK-M4-ftw"/>
                             <constraint firstItem="sVz-jC-E94" firstAttribute="centerY" secondItem="REf-oJ-ejO" secondAttribute="centerY" id="xal-lR-oAY"/>
                             <constraint firstItem="sVz-jC-E94" firstAttribute="leading" secondItem="REf-oJ-ejO" secondAttribute="trailing" constant="12" id="y4M-YK-hal"/>
@@ -92,18 +104,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="98"/>
+            <point key="canvasLocation" x="-714.39999999999998" y="97.601199400299862"/>
         </scene>
         <!--Viewer View Controller-->
         <scene sceneID="fEL-9v-rh9">
             <objects>
-                <tableViewController storyboardIdentifier="Viewer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PDu-Mv-7gt" customClass="ViewerViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Viewer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PDu-Mv-7gt" customClass="CRViewerViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b07-TX-yWk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="sNc-RJ-hfQ" customClass="ImageViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="sNc-RJ-hfQ" customClass="CRImageViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sNc-RJ-hfQ" id="uv8-40-m1Y">
@@ -118,7 +130,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gU-1U-xA5">
-                                            <rect key="frame" x="315" y="46.5" width="42" height="21"/>
+                                            <rect key="frame" x="307" y="44" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

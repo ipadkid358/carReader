@@ -1,22 +1,28 @@
 //
-//  ViewerViewController.m
+//  CRViewerViewController.m
 //  carReader
 //
 //  Created by ipad_kid on 9/23/17.
 //  Copyright © 2017 BlackJacket. All rights reserved.
 //
 
-#import "ViewerViewController.h"
-#import "ImageViewController.h"
-#import "ImageViewCell.h"
+#import "CRViewerViewController.h"
+#import "CRImageViewController.h"
+#import "CRImageViewCell.h"
 
-@implementation ViewerViewController {
+@implementation CRViewerViewController {
+    NSDictionary<NSString *, UIImage *> *images;
     NSArray<NSString *> *imageNames;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    imageNames = self.images.allKeys;
+    
+    NSArray<NSString *> *allImageNames = [self.assets valueForKeyPath:@"catalog.themeStore.allImageNames"];
+    NSMutableDictionary<NSString *, UIImage *> *testImages = NSMutableDictionary.new;
+    for (NSString *imageName in allImageNames) [testImages setValue:[self.assets imageNamed:imageName] forKey:imageName];
+    images = testImages;
+    imageNames = images.allKeys;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -26,12 +32,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.images.count;
+    return images.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *imageName = imageNames[indexPath.row];
-    UIImage *image = self.images[imageName];
+    UIImage *image = images[imageName];
     CGFloat imageWidth = image.size.width;
     CGFloat imageHeight = image.size.height;
     CGFloat imageScaler = self.view.bounds.size.width/(imageWidth+32);
@@ -39,13 +45,13 @@
     return imageHeight+46;
 }
 
-- (ImageViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+- (CRImageViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CRImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     NSString *imageName = imageNames[indexPath.row];
     
     cell.nameLabel.text = imageName;
     
-    UIImage *image = self.images[imageName];
+    UIImage *image = images[imageName];
     CGFloat imageWidth = image.size.width;
     CGFloat imageHeight = image.size.height;
     CGFloat imageScaler = (self.view.bounds.size.width-32)/imageWidth;
@@ -61,8 +67,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *imageName = imageNames[indexPath.row];
-    UIImage *image = self.images[imageName];
-    ImageViewController *imageViewController = [[ImageViewController alloc] initWithImage:image];
+    UIImage *image = images[imageName];
+    CRImageViewController *imageViewController = [[CRImageViewController alloc] initWithImage:image];
     imageViewController.navigationItem.title = imageName;
     
     [self.navigationController pushViewController:imageViewController animated:YES];

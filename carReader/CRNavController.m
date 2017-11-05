@@ -1,14 +1,14 @@
 //
-//  MainNavController.m
+//  CRNavController.m
 //  carReader
 //
 //  Created by ipad_kid on 9/30/17.
 //  Copyright © 2017 BlackJacket. All rights reserved.
 //
 
-#import "MainNavController.h"
+#import "CRNavController.h"
 
-@implementation MainNavController
+@implementation CRNavController
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;

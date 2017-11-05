@@ -1,5 +1,5 @@
 //
-//  MainNavController.h
+//  CRNavController.h
 //  carReader
 //
 //  Created by ipad_kid on 9/30/17.
@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainNavController : UINavigationController
+@interface CRNavController : UINavigationController
 @end

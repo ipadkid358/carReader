@@ -1,20 +1,20 @@
 //
-//  ImageViewController.m
+//  CRImageViewController.m
 //  carReader
 //
 //  Created by ipad_kid on 9/23/17.
 //  Copyright © 2017 BlackJacket. All rights reserved.
 //
 
-#import "ImageViewController.h"
+#import "CRImageViewController.h"
 #import "UIView+cat.h"
 
-@implementation ImageViewController {
+@implementation CRImageViewController {
     UIActivityViewController *activityView;
 }
 
 - (instancetype)initWithImage:(UIImage *)image {
-    ImageViewController *newViewController = [self init];
+    CRImageViewController *newViewController = [self init];
     activityView = [[UIActivityViewController alloc] initWithActivityItems:@[UIImagePNGRepresentation(image)] applicationActivities:NULL];
     UIView *imageVCView = newViewController.view;
     

@@ -1,5 +1,5 @@
 //
-//  ImageViewController.h
+//  CRImageViewController.h
 //  carReader
 //
 //  Created by ipad_kid on 9/23/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageViewController : UIViewController
+@interface CRImageViewController : UIViewController
 - (instancetype)initWithImage:(UIImage *)image;
 - (void)flipBackground;
 - (void)shareImage:(UIGestureRecognizer *)gestureRecognizer;

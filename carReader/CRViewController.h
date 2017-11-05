@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CRViewController.h
 //  carReader
 //
 //  Created by ipad_kid on 9/23/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CRViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
 
 - (IBAction)goButton;

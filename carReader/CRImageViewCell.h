@@ -1,5 +1,5 @@
 //
-//  ImageViewCell.h
+//  CRImageViewCell.h
 //  carReader
 //
 //  Created by ipad_kid on 10/9/17.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageViewCell : UITableViewCell
+@interface CRImageViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;

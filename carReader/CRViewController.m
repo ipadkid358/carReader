@@ -15,12 +15,10 @@
 @implementation CRViewController
 
 - (IBAction)goButton {
-    NSString *pathForBundle = self.textBox.text;
+    NSString *assetPath = self.textBox.text;
     
-    NSString *assetsName = pathForBundle.lastPathComponent;
-    NSBundle *assetsBundle = [NSBundle bundleWithPath:pathForBundle.stringByDeletingLastPathComponent];
     UIUserInterfaceIdiom deviceIdiom = UIDevice.currentDevice.userInterfaceIdiom;
-    _UIAssetManager *assets = [[_UIAssetManager alloc] initWithName:assetsName inBundle:assetsBundle idiom:deviceIdiom];
+    _UIAssetManager *assets = [[_UIAssetManager alloc] initWithURL:[NSURL fileURLWithPath:assetPath] idiom:deviceIdiom error:NULL];
     if (!assets) return;
     
     CRViewerViewController *newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Viewer"];

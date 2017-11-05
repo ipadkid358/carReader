@@ -33,6 +33,7 @@
 @interface _UIAssetManager : NSObject
 + (nullable instancetype)assetManagerForBundle:(nullable NSBundle *)bundle;
 - (nullable instancetype)initWithName:(nullable NSString *)name inBundle:(nullable NSBundle *)bundle idiom:(UIUserInterfaceIdiom)idiom;
+- (nullable instancetype)initWithURL:(nullable NSURL *)url idiom:(UIUserInterfaceIdiom)idiom error:(NSError *_Nullable *_Nullable)error;
 - (nullable UIImage *)imageNamed:(nullable NSString *)imageName;
 - (nullable UIImage *)imageNamed:(nullable NSString *)imageName idiom:(UIUserInterfaceIdiom)idiom;
 @end

@@ -10,5 +10,7 @@
 #import "Private.h"
 
 @interface CRAppPickerController : UITableViewController
+
 @property (nullable, nonatomic) NSArray<LSApplicationProxy *> *validApps;
+
 @end

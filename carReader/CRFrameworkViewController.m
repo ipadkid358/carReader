@@ -20,7 +20,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     NSArray<NSBundle *> *frameworkSet = indexPath.section ? self.privateFrameworks : self.publicFrameworks;
-    cell.textLabel.text = frameworkSet[indexPath.row].bundleIdentifier;
+    NSBundle *targetBundle = frameworkSet[indexPath.row];
+    cell.textLabel.text = targetBundle.executablePath.lastPathComponent;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -34,8 +35,8 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
     CRViewerViewController *newViewController = [storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
-    newViewController.assets = [_UIAssetManager assetManagerForBundle:frameworkSet[indexPath.row]];
-    newViewController.navigationItem.title = @"Images";
+    NSBundle *targetBundle = frameworkSet[indexPath.row];
+    newViewController.assets = [_UIAssetManager assetManagerForBundle:targetBundle];
     [self.navigationController pushViewController:newViewController animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

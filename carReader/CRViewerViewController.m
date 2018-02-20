@@ -20,7 +20,10 @@
     
     NSArray<NSString *> *allImageNames = [self.assets valueForKeyPath:@"catalog.themeStore.allImageNames"];
     NSMutableDictionary<NSString *, UIImage *> *testImages = NSMutableDictionary.new;
-    for (NSString *imageName in allImageNames) [testImages setValue:[self.assets imageNamed:imageName] forKey:imageName];
+    for (NSString *imageName in allImageNames) {
+        [testImages setValue:[self.assets imageNamed:imageName] forKey:imageName];
+    }
+    
     images = testImages;
     imageNames = images.allKeys;
 }
@@ -41,7 +44,10 @@
     CGFloat imageWidth = image.size.width;
     CGFloat imageHeight = image.size.height;
     CGFloat imageScaler = self.view.bounds.size.width/(imageWidth+32);
-    if (imageScaler < 1) imageHeight *= imageScaler;
+    if (imageScaler < 1) {
+        imageHeight *= imageScaler;
+    }
+    
     return imageHeight+46;
 }
 
@@ -59,6 +65,7 @@
         imageHeight *= imageScaler;
         imageWidth *= imageScaler;
     }
+    
     cell.imageImageView.image = image;
     cell.imageWidth.constant = imageWidth;
     cell.imageHeight.constant = imageHeight;
@@ -70,7 +77,7 @@
     UIImage *image = images[imageName];
     CRImageViewController *imageViewController = [[CRImageViewController alloc] initWithImage:image];
     imageViewController.navigationItem.title = imageName;
-    
+
     [self.navigationController pushViewController:imageViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

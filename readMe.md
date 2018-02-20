@@ -6,8 +6,18 @@ View contents of a given `.car` file
  - thanks to CoolStar for cardump to get me on the right path
  - [iOS-Artwork-Extractor](https://github.com/0xced/iOS-Artwork-Extractor/blob/master/Classes/ArtworkViewController.m) explained how to use `valueForKeyPath:`
 
-### TODOs:
- - Generally nicer UI
 
-#### Known bugs:
- - ScrollView can break when changing orientations
+## Documentaion on `_UIAssetManager`
+```obj-c
+// Private class in UIKit (public framework)
+_UIAssetManager *assets;
+
+// Below classes are in CoreUI (private framework)
+CUICatalog *catalog = assets._catalog;
+CUIStructuredThemeStore *themeStore = catalog._themeStore;
+
+NSArray<NSString *> *allImageNames = themeStore.allImageNames;
+```
+
+### TODOs:
+ - Generally nicer UI (including icon)

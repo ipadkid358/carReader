@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (BlackJacket)
+@interface UIView (BJViewLayout)
 
 // do not use for setting self constraints such as Width
 - (void)addLayoutConstraint:(NSLayoutAttribute)attribute toItem:(id)item offset:(CGFloat)offset;

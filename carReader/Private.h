@@ -9,31 +9,32 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 
 @interface LSResourceProxy
-@property (nonatomic, copy, null_unspecified) NSString *localizedName;
+@property (nonatomic, copy) NSString *localizedName;
 @end
 
 @interface LSBundleProxy : LSResourceProxy
-@property (nonatomic, readonly, null_unspecified) NSString *bundleIdentifier;
-@property (nonatomic, readonly, null_unspecified) NSString *localizedShortName;
-@property (nonatomic, readonly, null_unspecified) NSURL *bundleURL;
+@property (nonatomic, readonly) NSString *bundleIdentifier;
+@property (nonatomic, readonly) NSString *localizedShortName;
+@property (nonatomic, readonly) NSURL *bundleURL;
 @end
 
 @interface LSApplicationProxy : LSBundleProxy
 @end
 
 @interface LSApplicationWorkspace : NSObject
-+ (nonnull instancetype)defaultWorkspace;
-- (nullable NSArray<LSApplicationProxy *> *)allInstalledApplications;
++ (instancetype)defaultWorkspace;
+- (NSArray<LSApplicationProxy *> *)allInstalledApplications;
 @end
 
 @interface UIImage (BlackJacketPrivate)
-+ (nonnull UIImage *)_applicationIconImageForBundleIdentifier:(nonnull NSString *)bundleIdentifier format:(int)format scale:(CGFloat)scale;
++ (UIImage *)_applicationIconImageForBundleIdentifier:(NSString *)bundleIdentifier format:(int)format scale:(CGFloat)scale;
 @end
 
 @interface _UIAssetManager : NSObject
-+ (nullable instancetype)assetManagerForBundle:(nullable NSBundle *)bundle;
-- (nullable instancetype)initWithName:(nullable NSString *)name inBundle:(nullable NSBundle *)bundle idiom:(UIUserInterfaceIdiom)idiom;
-- (nullable instancetype)initWithURL:(nullable NSURL *)url idiom:(UIUserInterfaceIdiom)idiom error:(NSError *_Nullable *_Nullable)error;
-- (nullable UIImage *)imageNamed:(nullable NSString *)imageName;
-- (nullable UIImage *)imageNamed:(nullable NSString *)imageName idiom:(UIUserInterfaceIdiom)idiom;
++ (instancetype)assetManagerForBundle:(NSBundle *)bundle;
+- (instancetype)initWithName:(NSString *)name inBundle:(NSBundle *)bundle idiom:(UIUserInterfaceIdiom)idiom;
+- (instancetype)initWithURL:(NSURL *)url idiom:(UIUserInterfaceIdiom)idiom error:(NSError **)error;
+- (UIImage *)imageNamed:(NSString *)imageName;
+- (UIImage *)imageNamed:(NSString *)imageName idiom:(UIUserInterfaceIdiom)idiom;
+- (NSBundle *)bundle;
 @end

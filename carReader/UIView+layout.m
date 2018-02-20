@@ -6,9 +6,9 @@
 //  Copyright © 2017 BlackJacket. All rights reserved.
 //
 
-#import "UIView+cat.h"
+#import "UIView+layout.h"
 
-@implementation UIView (BlackJacket)
+@implementation UIView (BJViewLayout)
 
 - (void)addLayoutConstraint:(NSLayoutAttribute)attribute toItem:(id)item offset:(CGFloat)offset {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:item attribute:attribute relatedBy:NSLayoutRelationEqual toItem:self attribute:attribute multiplier:1 constant:offset]];

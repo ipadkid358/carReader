@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CRViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
 
 - (IBAction)goButton;

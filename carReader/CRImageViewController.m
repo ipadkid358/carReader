@@ -7,46 +7,70 @@
 //
 
 #import "CRImageViewController.h"
-#import "UIView+cat.h"
+#import "UIView+layout.h"
 
 @implementation CRImageViewController {
     UIActivityViewController *activityView;
+    UIImage *showingImage;
+    UIScrollView *scrollView;
 }
 
-- (instancetype)initWithImage:(UIImage *)image {
-    CRImageViewController *newViewController = [self init];
-    activityView = [[UIActivityViewController alloc] initWithActivityItems:@[UIImagePNGRepresentation(image)] applicationActivities:NULL];
-    UIView *imageVCView = newViewController.view;
+- (void)updateConstraints {
+    scrollView.contentSize = showingImage.size;
+    UIView *imageVCView = self.view;
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    UIScrollView *scrollView = UIScrollView.new;
-    scrollView.contentSize = image.size;
-    scrollView.scrollsToTop = NO;
-    [scrollView addSubview:imageView];
-    [imageVCView addSubview:scrollView];
-    
-    CGFloat imageWidth = image.size.width;
-    CGFloat imageHeight = image.size.height;
+    CGFloat imageWidth = showingImage.size.width;
+    CGFloat imageHeight = showingImage.size.height;
     CGFloat scrollWidth = MIN(imageWidth, imageVCView.frame.size.width);
     CGFloat scrollHeight = MIN(imageHeight, imageVCView.frame.size.height);
-    newViewController.automaticallyAdjustsScrollViewInsets = (scrollHeight != imageHeight);
+    self.automaticallyAdjustsScrollViewInsets = (scrollHeight != imageHeight);
     
-    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [scrollView removeConstraints:scrollView.constraints];
+    [imageVCView removeConstraints:scrollView.constraints];
+    
     [scrollView addLayoutConstraint:NSLayoutAttributeWidth offset:scrollWidth];
     [scrollView addLayoutConstraint:NSLayoutAttributeHeight offset:scrollHeight];
     [imageVCView addLayoutConstraint:NSLayoutAttributeCenterX toItem:scrollView offset:0];
     [imageVCView addLayoutConstraint:NSLayoutAttributeCenterY toItem:scrollView offset:0];
+}
+
+- (instancetype)initWithImage:(UIImage *)image {
+    if (self = [self init]) {
+        activityView = [[UIActivityViewController alloc] initWithActivityItems:@[UIImagePNGRepresentation(image)] applicationActivities:NULL];
+        showingImage = image;
+        
+        UIView *imageVCView = self.view;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        
+        scrollView = UIScrollView.new;
+        scrollView.scrollsToTop = NO;
+        [scrollView addSubview:imageView];
+        [imageVCView addSubview:scrollView];
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [self updateConstraints];
+        
+        SEL flipBackgroundAction = @selector(flipBackground);
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Invert background" style:UIBarButtonItemStylePlain target:self action:flipBackgroundAction];
+        
+        [imageVCView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(shareImage:)]];
+        
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:flipBackgroundAction];
+        doubleTap.numberOfTapsRequired = 2;
+        [imageVCView addGestureRecognizer:doubleTap];
+        
+        self.view.backgroundColor = UIColor.whiteColor;
+    }
+    return self;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
-    UIBarButtonItem *invertButton = [[UIBarButtonItem alloc] init];
-    invertButton.title = @"Invert background";
-    invertButton.target = newViewController;
-    invertButton.action = @selector(flipBackground);
-    newViewController.navigationItem.rightBarButtonItem = invertButton;
-    
-    [imageVCView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:newViewController action:@selector(shareImage:)]];
-    
-    newViewController.view.backgroundColor = UIColor.whiteColor;
-    return newViewController;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateConstraints];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,7 +86,9 @@
 }
 
 - (void)shareImage:(UIGestureRecognizer *)gestureRecognizer {
-    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) [self presentViewController:activityView animated:YES completion:nil];
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        [self presentViewController:activityView animated:YES completion:nil];
+    }
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {

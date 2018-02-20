@@ -1,5 +1,5 @@
 //
-//  CRImageViewController.h
+//  CRAppDelegate.h
 //  carReader
 //
 //  Created by ipad_kid on 9/23/17.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CRImageViewController : UIViewController
-- (instancetype)initWithImage:(UIImage *)image;
+@interface CRAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
 @end

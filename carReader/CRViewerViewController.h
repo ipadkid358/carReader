@@ -10,5 +10,7 @@
 #import "Private.h"
 
 @interface CRViewerViewController : UITableViewController
+
 @property (strong, nonatomic) _UIAssetManager *assets;
+
 @end

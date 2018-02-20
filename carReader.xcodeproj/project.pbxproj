@@ -8,31 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		971129C11F802348002AA33F /* CRNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 971129C01F802348002AA33F /* CRNavController.m */; };
+		97168FDE203C9C39009F3E37 /* CRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97168FDD203C9C39009F3E37 /* CRImageViewController.m */; };
+		97168FE1203C9C74009F3E37 /* UIView+layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 97168FDF203C9C74009F3E37 /* UIView+layout.m */; };
 		9732EB861F9CC094002A8AD8 /* CRAppPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9732EB851F9CC094002A8AD8 /* CRAppPickerController.m */; };
 		974ADF9E1FAEB0FA00248351 /* CRFrameworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974ADF9D1FAEB0FA00248351 /* CRFrameworkViewController.m */; };
-		974D9FF21F766E5B003CF5AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FF11F766E5B003CF5AE /* AppDelegate.m */; };
+		974D9FF21F766E5B003CF5AE /* CRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FF11F766E5B003CF5AE /* CRAppDelegate.m */; };
 		974D9FF51F766E5B003CF5AE /* CRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FF41F766E5B003CF5AE /* CRViewController.m */; };
 		974D9FF81F766E5B003CF5AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974D9FF61F766E5B003CF5AE /* Main.storyboard */; };
 		974D9FFA1F766E5B003CF5AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974D9FF91F766E5B003CF5AE /* Assets.xcassets */; };
 		974D9FFD1F766E5B003CF5AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974D9FFB1F766E5B003CF5AE /* LaunchScreen.storyboard */; };
 		974DA0001F766E5B003CF5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FFF1F766E5B003CF5AE /* main.m */; };
 		974DA00B1F768C3D003CF5AE /* CRViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974DA00A1F768C3D003CF5AE /* CRViewerViewController.m */; };
-		9768A6C01F76A86200B5DE79 /* CRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9768A6BF1F76A86200B5DE79 /* CRImageViewController.m */; };
 		977D52E21F8C226600B2E3A8 /* CRImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */; };
-		978170941F77499B002DE385 /* UIView+cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 978170931F77499B002DE385 /* UIView+cat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		971129BF1F80233C002AA33F /* CRNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRNavController.h; sourceTree = "<group>"; };
 		971129C01F802348002AA33F /* CRNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRNavController.m; sourceTree = "<group>"; };
+		97168FDC203C9C39009F3E37 /* CRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRImageViewController.h; sourceTree = "<group>"; };
+		97168FDD203C9C39009F3E37 /* CRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRImageViewController.m; sourceTree = "<group>"; };
+		97168FDF203C9C74009F3E37 /* UIView+layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+layout.m"; sourceTree = "<group>"; };
+		97168FE0203C9C74009F3E37 /* UIView+layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+layout.h"; sourceTree = "<group>"; };
 		9732EB841F9CC08C002A8AD8 /* CRAppPickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRAppPickerController.h; sourceTree = "<group>"; };
 		9732EB851F9CC094002A8AD8 /* CRAppPickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRAppPickerController.m; sourceTree = "<group>"; };
 		9732EB871F9CC2C5002A8AD8 /* Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Private.h; sourceTree = "<group>"; };
 		974ADF9D1FAEB0FA00248351 /* CRFrameworkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRFrameworkViewController.m; sourceTree = "<group>"; };
 		974ADF9F1FAEB10C00248351 /* CRFrameworkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRFrameworkViewController.h; sourceTree = "<group>"; };
 		974D9FED1F766E5B003CF5AE /* carReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		974D9FF01F766E5B003CF5AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		974D9FF11F766E5B003CF5AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		974D9FF01F766E5B003CF5AE /* CRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRAppDelegate.h; sourceTree = "<group>"; };
+		974D9FF11F766E5B003CF5AE /* CRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRAppDelegate.m; sourceTree = "<group>"; };
 		974D9FF31F766E5B003CF5AE /* CRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRViewController.h; sourceTree = "<group>"; };
 		974D9FF41F766E5B003CF5AE /* CRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRViewController.m; sourceTree = "<group>"; };
 		974D9FF71F766E5B003CF5AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,12 +46,9 @@
 		974D9FFF1F766E5B003CF5AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		974DA0091F768C0E003CF5AE /* CRViewerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRViewerViewController.h; sourceTree = "<group>"; };
 		974DA00A1F768C3D003CF5AE /* CRViewerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRViewerViewController.m; sourceTree = "<group>"; };
-		9768A6BE1F76A85300B5DE79 /* CRImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRImageViewController.h; sourceTree = "<group>"; };
-		9768A6BF1F76A86200B5DE79 /* CRImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRImageViewController.m; sourceTree = "<group>"; };
+		9779FC31200997B400B2F0C8 /* readMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readMe.md; sourceTree = "<group>"; };
 		977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRImageViewCell.m; sourceTree = "<group>"; };
 		977D52E31F8C227000B2E3A8 /* CRImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRImageViewCell.h; sourceTree = "<group>"; };
-		978170921F77496E002DE385 /* UIView+cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+cat.h"; sourceTree = "<group>"; };
-		978170931F77499B002DE385 /* UIView+cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+cat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		974D9FE41F766E5B003CF5AE = {
 			isa = PBXGroup;
 			children = (
+				9779FC31200997B400B2F0C8 /* readMe.md */,
 				974D9FEF1F766E5B003CF5AE /* carReader */,
 				974D9FEE1F766E5B003CF5AE /* Products */,
 			);
@@ -80,8 +82,8 @@
 		974D9FEF1F766E5B003CF5AE /* carReader */ = {
 			isa = PBXGroup;
 			children = (
-				974D9FF01F766E5B003CF5AE /* AppDelegate.h */,
-				974D9FF11F766E5B003CF5AE /* AppDelegate.m */,
+				974D9FF01F766E5B003CF5AE /* CRAppDelegate.h */,
+				974D9FF11F766E5B003CF5AE /* CRAppDelegate.m */,
 				9732EB871F9CC2C5002A8AD8 /* Private.h */,
 				971129BF1F80233C002AA33F /* CRNavController.h */,
 				971129C01F802348002AA33F /* CRNavController.m */,
@@ -93,13 +95,13 @@
 				974ADF9D1FAEB0FA00248351 /* CRFrameworkViewController.m */,
 				977D52E31F8C227000B2E3A8 /* CRImageViewCell.h */,
 				977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */,
-				9768A6BE1F76A85300B5DE79 /* CRImageViewController.h */,
-				9768A6BF1F76A86200B5DE79 /* CRImageViewController.m */,
-				974D9FF61F766E5B003CF5AE /* Main.storyboard */,
-				978170921F77496E002DE385 /* UIView+cat.h */,
-				978170931F77499B002DE385 /* UIView+cat.m */,
 				974DA0091F768C0E003CF5AE /* CRViewerViewController.h */,
 				974DA00A1F768C3D003CF5AE /* CRViewerViewController.m */,
+				97168FDC203C9C39009F3E37 /* CRImageViewController.h */,
+				97168FDD203C9C39009F3E37 /* CRImageViewController.m */,
+				97168FE0203C9C74009F3E37 /* UIView+layout.h */,
+				97168FDF203C9C74009F3E37 /* UIView+layout.m */,
+				974D9FF61F766E5B003CF5AE /* Main.storyboard */,
 				974D9FF91F766E5B003CF5AE /* Assets.xcassets */,
 				974D9FFB1F766E5B003CF5AE /* LaunchScreen.storyboard */,
 				974D9FFE1F766E5B003CF5AE /* Info.plist */,
@@ -180,14 +182,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				977D52E21F8C226600B2E3A8 /* CRImageViewCell.m in Sources */,
+				97168FDE203C9C39009F3E37 /* CRImageViewController.m in Sources */,
 				974ADF9E1FAEB0FA00248351 /* CRFrameworkViewController.m in Sources */,
+				97168FE1203C9C74009F3E37 /* UIView+layout.m in Sources */,
 				9732EB861F9CC094002A8AD8 /* CRAppPickerController.m in Sources */,
-				9768A6C01F76A86200B5DE79 /* CRImageViewController.m in Sources */,
 				974D9FF51F766E5B003CF5AE /* CRViewController.m in Sources */,
 				974DA0001F766E5B003CF5AE /* main.m in Sources */,
-				978170941F77499B002DE385 /* UIView+cat.m in Sources */,
 				974DA00B1F768C3D003CF5AE /* CRViewerViewController.m in Sources */,
-				974D9FF21F766E5B003CF5AE /* AppDelegate.m in Sources */,
+				974D9FF21F766E5B003CF5AE /* CRAppDelegate.m in Sources */,
 				971129C11F802348002AA33F /* CRNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

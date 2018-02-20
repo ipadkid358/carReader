@@ -36,7 +36,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
     CRViewerViewController *newViewController = [storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
     newViewController.assets = [_UIAssetManager assetManagerForBundle:[NSBundle bundleWithURL:appProxy.bundleURL]];
-    newViewController.navigationItem.title = appProxy.localizedShortName;
     [self.navigationController pushViewController:newViewController animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

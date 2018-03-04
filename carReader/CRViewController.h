@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CRViewController : UIViewController
+@interface CRViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITextField *textBox;
-
-- (IBAction)goButton;
-- (IBAction)pasteButton;
 
 @end

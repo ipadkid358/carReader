@@ -20,6 +20,7 @@
 		974DA0001F766E5B003CF5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FFF1F766E5B003CF5AE /* main.m */; };
 		974DA00B1F768C3D003CF5AE /* CRViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974DA00A1F768C3D003CF5AE /* CRViewerViewController.m */; };
 		977D52E21F8C226600B2E3A8 /* CRImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */; };
+		97E3938B204B8ED5008EA2F5 /* CRFileSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E3938A204B8ED5008EA2F5 /* CRFileSystemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		9779FC31200997B400B2F0C8 /* readMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readMe.md; sourceTree = "<group>"; };
 		977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRImageViewCell.m; sourceTree = "<group>"; };
 		977D52E31F8C227000B2E3A8 /* CRImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRImageViewCell.h; sourceTree = "<group>"; };
+		97E39389204B8ECB008EA2F5 /* CRFileSystemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRFileSystemViewController.h; sourceTree = "<group>"; };
+		97E3938A204B8ED5008EA2F5 /* CRFileSystemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRFileSystemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				971129C01F802348002AA33F /* CRNavController.m */,
 				974D9FF31F766E5B003CF5AE /* CRViewController.h */,
 				974D9FF41F766E5B003CF5AE /* CRViewController.m */,
+				97E39389204B8ECB008EA2F5 /* CRFileSystemViewController.h */,
+				97E3938A204B8ED5008EA2F5 /* CRFileSystemViewController.m */,
 				9732EB841F9CC08C002A8AD8 /* CRAppPickerController.h */,
 				9732EB851F9CC094002A8AD8 /* CRAppPickerController.m */,
 				974ADF9F1FAEB10C00248351 /* CRFrameworkViewController.h */,
@@ -182,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				977D52E21F8C226600B2E3A8 /* CRImageViewCell.m in Sources */,
+				97E3938B204B8ED5008EA2F5 /* CRFileSystemViewController.m in Sources */,
 				97168FDE203C9C39009F3E37 /* CRImageViewController.m in Sources */,
 				974ADF9E1FAEB0FA00248351 /* CRFrameworkViewController.m in Sources */,
 				97168FE1203C9C74009F3E37 /* UIView+layout.m in Sources */,

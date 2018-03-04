@@ -24,6 +24,8 @@
         [testImages setValue:[self.assets imageNamed:imageName] forKey:imageName];
     }
     
+    self.navigationItem.title = _assets.bundle.executablePath.lastPathComponent ?: @"Images";
+    
     images = testImages;
     imageNames = images.allKeys;
 }
@@ -77,7 +79,7 @@
     UIImage *image = images[imageName];
     CRImageViewController *imageViewController = [[CRImageViewController alloc] initWithImage:image];
     imageViewController.navigationItem.title = imageName;
-
+    
     [self.navigationController pushViewController:imageViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

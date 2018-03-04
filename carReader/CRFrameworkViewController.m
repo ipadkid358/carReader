@@ -13,6 +13,8 @@
 @implementation CRFrameworkViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
     self.navigationItem.title = @"Select Framework";
 }

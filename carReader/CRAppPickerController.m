@@ -15,6 +15,8 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
     self.navigationItem.title = @"Select App";
     appCount = self.validApps.count;

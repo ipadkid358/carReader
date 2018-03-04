@@ -17,12 +17,14 @@
 
 - (void)updateConstraints {
     scrollView.contentSize = showingImage.size;
+    
     UIView *imageVCView = self.view;
+    CGSize imageViewSize = imageVCView.frame.size;
     
     CGFloat imageWidth = showingImage.size.width;
     CGFloat imageHeight = showingImage.size.height;
-    CGFloat scrollWidth = MIN(imageWidth, imageVCView.frame.size.width);
-    CGFloat scrollHeight = MIN(imageHeight, imageVCView.frame.size.height);
+    CGFloat scrollWidth = MIN(imageWidth, imageViewSize.width);
+    CGFloat scrollHeight = MIN(imageHeight, imageViewSize.height);
     self.automaticallyAdjustsScrollViewInsets = (scrollHeight != imageHeight);
     
     [scrollView removeConstraints:scrollView.constraints];

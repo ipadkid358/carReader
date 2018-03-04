@@ -20,4 +20,4 @@ NSArray<NSString *> *allImageNames = themeStore.allImageNames;
 ```
 
 ### TODOs:
- - Generally nicer UI (including icon)
+ - Fix filesystem dump to skip symlinks

@@ -10,85 +10,65 @@
 #import "Private.h"
 #import "CRViewerViewController.h"
 
+#define kCellIdentifier @"Cell"
+
 @implementation CRFileSystemViewController {
-    UIAlertController *infoAlert;
+    NSArray *_filesAtCurrentPath;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
-    self.navigationItem.title = @"Select File";
-}
-
-- (void)dismissInfoAlert {
-    if (infoAlert) {
-        CGRect newBounds = infoAlert.view.bounds;
-        newBounds.origin.y = self.view.bounds.size.height;
-        [UIView animateWithDuration:0.15 animations:^{
-            infoAlert.view.bounds = newBounds;
-        } completion:^(BOOL finished) {
-            [infoAlert dismissViewControllerAnimated:NO completion:nil];
-            infoAlert = NULL;
-        }];
-    }
-}
-
-- (void)longTouch:(UILongPressGestureRecognizer *)touch {
-    if (touch.state == UIGestureRecognizerStateBegan) {
-        UITableViewCell *cell = (UITableViewCell *)touch.view;
-        NSString *text = cell.textLabel.text;
-        
-        infoAlert = [UIAlertController alertControllerWithTitle:@"" message:text preferredStyle:UIAlertControllerStyleAlert];
-        infoAlert.view.hidden = YES;
-        [self presentViewController:infoAlert animated:NO completion:^{
-            UITapGestureRecognizer *dismissRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissInfoAlert)];
-            UIView *infoAlertView = infoAlert.view;
-            [infoAlertView.superview.subviews.firstObject addGestureRecognizer:dismissRecognizer];
-            
-            CGRect originalBounds = infoAlertView.bounds;
-            CGRect tmpBounds = originalBounds;
-            tmpBounds.origin.y = -self.view.frame.size.height;
-            infoAlertView.bounds = tmpBounds;
-            infoAlertView.hidden = NO;
-            
-            [UIView animateWithDuration:0.15 animations:^{
-                infoAlertView.bounds = originalBounds;
-            }];
-        }];
+    if (!_currentPath) {
+        _currentPath = @"/";
     }
     
-    if (touch.state == UIGestureRecognizerStateEnded) {
-        [self dismissInfoAlert];
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    [cell addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTouch:)]];
-    cell.textLabel.text = _validFiles[indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
+    _filesAtCurrentPath = [NSFileManager.defaultManager contentsOfDirectoryAtPath:_currentPath error:NULL];
+    
+    self.navigationItem.title = _currentPath.lastPathComponent;
+    
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:kCellIdentifier];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _validFiles.count;
+    return _filesAtCurrentPath.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *dirObject = _filesAtCurrentPath[indexPath.row];
+    NSString *fullPath = [_currentPath stringByAppendingPathComponent:dirObject];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier forIndexPath:indexPath];
+    cell.textLabel.text = dirObject;
+    
+    BOOL isDir;
+    [NSFileManager.defaultManager fileExistsAtPath:fullPath isDirectory:&isDir];
+    cell.accessoryType = isDir ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    cell.userInteractionEnabled = cell.textLabel.enabled = (isDir || [dirObject.pathExtension isEqualToString:@"car"]);
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
-    CRViewerViewController *newViewController = [storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
-    UIUserInterfaceIdiom deviceIdiom = UIDevice.currentDevice.userInterfaceIdiom;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *fullPath = [_currentPath stringByAppendingPathComponent:cell.textLabel.text];
     
-    NSString *assetPath = _validFiles[indexPath.row];
-    newViewController.assets = [[_UIAssetManager alloc] initWithURL:[NSURL fileURLWithPath:assetPath isDirectory:NO] idiom:deviceIdiom error:NULL];
-    [self.navigationController pushViewController:newViewController animated:YES];
+    BOOL isDir;
+    [NSFileManager.defaultManager fileExistsAtPath:fullPath isDirectory:&isDir];
+    if (isDir) {
+        typeof(self) newViewController = self.class.new;
+        newViewController.currentPath = fullPath;
+        [self.navigationController pushViewController:newViewController animated:YES];
+    } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
+        CRViewerViewController *newViewController = [storyboard instantiateViewControllerWithIdentifier:@"Viewer"];
+        NSURL *integrityPath = [NSURL fileURLWithPath:fullPath isDirectory:NO];
+        UIUserInterfaceIdiom deviceIdiom = UIDevice.currentDevice.userInterfaceIdiom;
+        newViewController.assets = [[_UIAssetManager alloc] initWithURL:integrityPath idiom:deviceIdiom error:NULL];
+        [self.navigationController pushViewController:newViewController animated:YES];
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
 }
 
 @end

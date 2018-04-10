@@ -18,6 +18,3 @@ CUIStructuredThemeStore *themeStore = catalog._themeStore;
 
 NSArray<NSString *> *allImageNames = themeStore.allImageNames;
 ```
-
-### TODOs:
- - Fix filesystem dump to skip symlinks

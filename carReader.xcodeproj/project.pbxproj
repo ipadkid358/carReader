@@ -20,6 +20,8 @@
 		974DA0001F766E5B003CF5AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D9FFF1F766E5B003CF5AE /* main.m */; };
 		974DA00B1F768C3D003CF5AE /* CRViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974DA00A1F768C3D003CF5AE /* CRViewerViewController.m */; };
 		977D52E21F8C226600B2E3A8 /* CRImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */; };
+		9793FD22207C596C001030D2 /* ent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9793FD20207C596B001030D2 /* ent.plist */; };
+		9793FD23207C596C001030D2 /* control in Resources */ = {isa = PBXBuildFile; fileRef = 9793FD21207C596C001030D2 /* control */; };
 		97E3938B204B8ED5008EA2F5 /* CRFileSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E3938A204B8ED5008EA2F5 /* CRFileSystemViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,9 @@
 		9779FC31200997B400B2F0C8 /* readMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readMe.md; sourceTree = "<group>"; };
 		977D52E11F8C226600B2E3A8 /* CRImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRImageViewCell.m; sourceTree = "<group>"; };
 		977D52E31F8C227000B2E3A8 /* CRImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRImageViewCell.h; sourceTree = "<group>"; };
+		9793FD1E207C5216001030D2 /* make.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = make.sh; sourceTree = "<group>"; };
+		9793FD20207C596B001030D2 /* ent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ent.plist; sourceTree = "<group>"; };
+		9793FD21207C596C001030D2 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		97E39389204B8ECB008EA2F5 /* CRFileSystemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRFileSystemViewController.h; sourceTree = "<group>"; };
 		97E3938A204B8ED5008EA2F5 /* CRFileSystemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRFileSystemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				9779FC31200997B400B2F0C8 /* readMe.md */,
+				9793FD1E207C5216001030D2 /* make.sh */,
+				9793FD21207C596C001030D2 /* control */,
+				9793FD20207C596B001030D2 /* ent.plist */,
 				974D9FEF1F766E5B003CF5AE /* carReader */,
 				974D9FEE1F766E5B003CF5AE /* Products */,
 			);
@@ -175,6 +183,8 @@
 			files = (
 				974D9FFD1F766E5B003CF5AE /* LaunchScreen.storyboard in Resources */,
 				974D9FFA1F766E5B003CF5AE /* Assets.xcassets in Resources */,
+				9793FD22207C596C001030D2 /* ent.plist in Resources */,
+				9793FD23207C596C001030D2 /* control in Resources */,
 				974D9FF81F766E5B003CF5AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

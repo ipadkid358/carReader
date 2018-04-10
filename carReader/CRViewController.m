@@ -29,35 +29,6 @@
     [self.navigationController pushViewController:newViewController animated:YES];
 }
 
-- (void)recursiveDump:(NSString *)dir list:(NSMutableArray<NSString *> *)list {
-    NSFileManager *fileManager = NSFileManager.defaultManager;
-    for (NSString *file in [fileManager contentsOfDirectoryAtPath:dir error:NULL]) {
-        NSString *path = [dir stringByAppendingPathComponent:file];
-        BOOL isDir;
-        if ([fileManager fileExistsAtPath:path isDirectory:&isDir]) {
-            if (isDir) {
-                [self recursiveDump:path list:list];
-            } else if ([path.pathExtension isEqualToString:@"car"]) {
-                [list addObject:path];
-            }
-        }
-    }
-}
-
-- (void)dumpFS {
-    UIAlertController *loadAlert = [UIAlertController alertControllerWithTitle:@"Loading" message:@"Finding all files with .car extension" preferredStyle:1];
-    [self presentViewController:loadAlert animated:YES completion:^{
-        NSMutableArray<NSString *> *list = NSMutableArray.new;
-        [self recursiveDump:@"/" list:list];
-        
-        CRFileSystemViewController *filePicker = CRFileSystemViewController.new;
-        filePicker.validFiles = list;
-        [loadAlert dismissViewControllerAnimated:YES completion:^{
-            [self.navigationController pushViewController:filePicker animated:YES];
-        }];
-    }];
-}
-
 - (void)pasteButton {
     NSString *pasteboard = UIPasteboard.generalPasteboard.string;
     if (pasteboard.absolutePath) {
@@ -114,6 +85,10 @@
     }];
 }
 
+- (void)popFileSystemBrowser {
+    [self.navigationController pushViewController:[CRFileSystemViewController new] animated:YES];
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
@@ -132,7 +107,7 @@
             titleText = @"Pick Framework";
             break;
         case 3:
-            titleText = @"All Files";
+            titleText = @"Browse Files";
             break;
     }
     
@@ -162,7 +137,7 @@
             [self pickFrameworkHit];
             break;
         case 3:
-            [self dumpFS];
+            [self popFileSystemBrowser];
             break;
     }
 }

@@ -10,7 +10,6 @@
 
 @interface CRFileSystemViewController : UITableViewController
 
-@property (nullable, nonatomic) NSArray<NSString *> *validFiles;
+@property (nonatomic) NSString *currentPath;
 
 @end
-
